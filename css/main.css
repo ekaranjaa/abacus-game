@@ -49,6 +49,7 @@ label {
 .instructions p {
   padding: 10px;
   line-height: 1.4rem;
+  color: #8aa29e;
   background: rgba(0, 0, 0, 0.5);
 }
 
