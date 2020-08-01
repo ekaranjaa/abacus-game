@@ -4,40 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random integer game</title>
+    <title>Random integer subtraction game</title>
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>{ Game name here 😂 }</h1>
-        <div class="instructions">
-            <details>
-                <summary>Game instructions</summary>
-                You can only subtract <b>1, 2 or 3</b> from the start number.
-                Note that you cannot subtract the same number two consecutive times.
-                You'll be taking turns with the computer; once you subtract your
-                number of choice the computer will also subtract 1, 2 or 3. The last
-                one to subtract to <b>0</b> losses. Good luck 😉
-            </details>
-        </div>
-        <h2 class="start-number"></h2>
-        <div class="remainder"></div>
-        <h2 class="timeout"></h2>
-        <h1 class="result"></h1>
+        <h1 class="logo">{ abacus &#129518; }</h1>
+        <details class="instructions">
+            <summary>Game instructions</summary>
+            <p>
+                You can only subtract <b>1, 2 or 3</b> from the start number. The start number
+                will range from <b>20 to 30.</b> You'll be taking turns with the computer; once
+                you subtract your number of choice the computer will also subtract 1, 2 or 3.
+                The last one to subtract to <b>0</b> losses. Good luck 😉
+            </p>
+        </details>
         <div class="game-space">
-            <p>Pick a number to subtract</p>
-            <form class="form">
-                <label for="one">1</label>
-                <input type="radio" id="one" name="playerNumber" value="1">
-                <label for="two">2</label>
-                <input type="radio" id="two" name="playerNumber" value="2">
-                <label for="three">3</label>
-                <input type="radio" id="three" name="playerNumber" value="3">
-            </form>
+            <h2 class="start-number"></h2>
+            <div class="remainder">
+                <p>Realtime updates</p>
+            </div>
+            <h2 class="timeout"></h2>
+            <h1 class="result"></h1>
+            <div class="controls">
+                <p class="prompt">Pick a number to subtract</p>
+                <form class="form">
+                    <input type="radio" id="one" name="playerNumber" value="1">
+                    <label for="one">1</label>
+                    <input type="radio" id="two" name="playerNumber" value="2">
+                    <label for="two">2</label>
+                    <input type="radio" id="three" name="playerNumber" value="3">
+                    <label for="three">3</label>
+                </form>
+            </div>
+            <button class="btn" onclick="location.reload()">RESTART</button>
         </div>
     </div>
 
-    <script src="./app.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 
 </html>

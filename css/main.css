@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  font-family: 'Fira Code', monospace;
+  background: #111;
+}
+
+button,
+label {
+  font-family: 'Fira Code', monospace;
+}
+
+.container {
+  margin: auto;
+  padding: 20px;
+  max-width: 500px;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.logo {
+  margin: 0 0 20px;
+  color: #e79f0d;
+  text-align: center;
+  letter-spacing: 0.2rem;
+}
+
+.instructions {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.instructions summary {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.instructions p {
+  padding: 10px;
+  line-height: 1.4rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.game-space {
+  padding: 20px 0;
+}
+
+.start-number span {
+  padding: 3px 6px;
+  color: #000;
+  background: #e79f0d;
+  border-radius: 5px;
+}
+
+.remainder {
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  color: #8aa29e;
+}
+
+.remainder hr {
+  margin: 20px auto;
+  border: none;
+  border-top: solid 1px rgba(255, 255, 255, 0.2);
+}
+
+.remainder .rem {
+  margin: 20px auto;
+}
+
+.timeout,
+.result {
+  text-align: center;
+}
+
+.result {
+  color: #e79f0d;
+}
+
+.prompt {
+  text-align: center;
+}
+
+.form {
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form label {
+  margin: 0 10px;
+  padding: 10px 20px;
+  display: block;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #000;
+  background: #e79f0d;
+  cursor: pointer;
+}
+
+.form input {
+  display: none;
+}
+
+.form input:disabled ~ label {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+
+.btn {
+  margin: 20px auto 0;
+  padding: 15px 30px;
+  display: none;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  background: #e79f0d;
+  cursor: pointer;
+}
+
+.btn.active {
+  display: block;
+}
