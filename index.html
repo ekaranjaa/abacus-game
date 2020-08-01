@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random integer game</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>{ Game name here 😂 }</h1>
+        <div class="instructions">
+            <details>
+                <summary>Game instructions</summary>
+                You can only subtract <b>1, 2 or 3</b> from the start number.
+                Note that you cannot subtract the same number two consecutive times.
+                You'll be taking turns with the computer; once you subtract your
+                number of choice the computer will also subtract 1, 2 or 3. The last
+                one to subtract to <b>0</b> losses. Good luck 😉
+            </details>
+        </div>
+        <h2 class="start-number"></h2>
+        <div class="remainder"></div>
+        <h2 class="timeout"></h2>
+        <h1 class="result"></h1>
+        <div class="game-space">
+            <p>Pick a number to subtract</p>
+            <form class="form">
+                <label for="one">1</label>
+                <input type="radio" id="one" name="playerNumber" value="1">
+                <label for="two">2</label>
+                <input type="radio" id="two" name="playerNumber" value="2">
+                <label for="three">3</label>
+                <input type="radio" id="three" name="playerNumber" value="3">
+            </form>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
