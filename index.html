@@ -14,7 +14,7 @@
         <h1 class="logo">{ abacus &#129518; }</h1>
         <details class="instructions">
             <summary>Game instructions</summary>
-            <p>
+            <p class="content">
                 You can only subtract <b>1, 2 or 3</b> from the start number. The start number
                 will range from <b>20 to 30.</b> You'll be taking turns with the computer; once
                 you subtract your number of choice the computer will also subtract 1, 2 or 3.
@@ -23,9 +23,10 @@
         </details>
         <div class="game-space">
             <h2 class="start-number"></h2>
-            <div class="remainder">
-                <p>Realtime updates</p>
-            </div>
+            <details class="remainder">
+                <summary>Realtime updates</summary>
+                <div class="content"></div>
+            </details>
             <h2 class="timeout"></h2>
             <h1 class="result"></h1>
             <div class="controls">

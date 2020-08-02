@@ -64,7 +64,7 @@ function endGame(winner) {
 function runGame() {
     const startNumberElement = document.querySelector('.start-number')
     const choices = document.getElementsByName('playerNumber')
-    const remainderElement = document.querySelector('.remainder')
+    const remainderElement = document.querySelector('.remainder .content')
 
     let generatedNumber = generateStartNumber()
     let playerInput
@@ -77,7 +77,7 @@ function runGame() {
         choice.onchange = () => {
             playerInput = getPlayerNumber(choice.value)
             computerInput = getComputerNumber()
-            remainder
+            remainderElement.parentElement.open = true
 
             if (playerInput) {
                 remainder = getRemainder(generatedNumber, playerInput)
