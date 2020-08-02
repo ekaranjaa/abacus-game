@@ -37,9 +37,16 @@ function getRemainder(n1, n2) {
     return n1 - n2 > 0 ? n1 - n2 : 0
 }
 
+function scrollPage() {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        left: 100,
+        behavior: 'smooth'
+    })
+}
+
 function endGame(winner) {
     const controls = document.querySelector('.controls')
-    const choices = document.getElementsByName('playerNumber')
     const timeOutElement = document.querySelector('.timeout')
     const resultElement = document.querySelector('.result')
     const restart = document.querySelector('.btn')
@@ -47,18 +54,20 @@ function endGame(winner) {
     timeOutElement.innerHTML = 'Game over'
     controls.style.display = 'none'
 
-    choices.forEach(choice => {
-        choice.checked = false
-        choice.disabled = true
-    })
-
     if (winner === 'computer') {
         resultElement.innerHTML = 'You lost 😔'
+        resultElement.classList.add('active')
     } else {
         resultElement.innerHTML = 'You won 😃'
+        resultElement.classList.add('active')
     }
 
-    restart.classList.add('active')
+    scrollPage()
+    setTimeout(() => {
+        restart.classList.add('active')
+        scrollPage()
+    }, 1000)
+
 }
 
 function runGame() {
@@ -93,8 +102,7 @@ function runGame() {
                 remainderElement.appendChild(remEl)
 
                 if (remainder === 0) {
-                    endGame('computer')
-                    return
+                    return endGame('computer')
                 }
             }
 
@@ -102,6 +110,7 @@ function runGame() {
                 choice.checked = false
                 choice.disabled = true
             })
+            scrollPage()
 
             setTimeout(() => {
                 if (computerInput) {
@@ -118,14 +127,14 @@ function runGame() {
                     remainderElement.appendChild(remEl)
 
                     if (remainder === 0) {
-                        endGame('player')
-                        return
+                        return endGame('player')
                     }
                 }
 
                 choices.forEach(choice => {
                     choice.disabled = false
                 })
+                scrollPage()
             }, 1000);
         }
     })
