@@ -22,6 +22,15 @@
             </p>
         </details>
         <div class="game-space">
+            <div class="scores">
+                <div class="player">
+                    You<span>0</span>
+                </div>
+                &#58;
+                <div class="computer">
+                    <span>0</span>Computer
+                </div>
+            </div>
             <h2 class="start-number"></h2>
             <details class="remainder">
                 <summary>Realtime updates</summary>
@@ -29,7 +38,7 @@
             </details>
             <h2 class="timeout"></h2>
             <h1 class="result"></h1>
-            <div class="controls">
+            <div class="controls active">
                 <p class="prompt">Pick a number to subtract</p>
                 <form class="form">
                     <input type="radio" id="one" name="playerNumber" value="1">
@@ -40,7 +49,8 @@
                     <label for="three">3</label>
                 </form>
             </div>
-            <button class="btn" onclick="location.reload()">RESTART</button>
+            <!-- <button class="btn" onclick="location.reload()">RESTART</button> -->
+            <button class="btn" onclick="restartGame()">RESTART</button>
         </div>
     </div>
 

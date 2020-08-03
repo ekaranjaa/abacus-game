@@ -16,10 +16,6 @@ function generateStartNumber() {
 function getPlayerNumber(input) {
     const playerChoice = input
 
-    if (playerChoice < minSubtractNumber || playerChoice > maxSubtractNumber) {
-        alert(`Number must be in the range of ${minSubtractNumber} to ${maxSubtractNumber}. See game instructions for more`)
-    }
-
     return playerChoice
 }
 
@@ -37,12 +33,45 @@ function getRemainder(n1, n2) {
     return n1 - n2 > 0 ? n1 - n2 : 0
 }
 
-function scrollPage() {
+function scrollPageUp() {
     window.scrollTo({
-        top: document.body.scrollHeight,
-        left: 100,
+        top: 0,
+        left: 0,
         behavior: 'smooth'
     })
+}
+
+function scrollPageDown() {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        left: 0,
+        behavior: 'smooth'
+    })
+}
+
+function restartGame() {
+    const resultElement = document.querySelector('.result')
+    const timeOutElement = document.querySelector('.timeout')
+    const remainderElement = document.querySelector('.remainder .content')
+    const controls = document.querySelector('.controls')
+    const restart = document.querySelector('.btn')
+    const choices = document.getElementsByName('playerNumber')
+
+    resultElement.innerHTML = ''
+    timeOutElement.innerHTML = ''
+    remainderElement.innerHTML = ''
+    remainderElement.parentElement.open = false
+
+    restart.classList.remove('active')
+    controls.classList.add('active')
+
+    choices.forEach(choice => {
+        choice.checked = false
+        choice.disabled = false
+    })
+
+    scrollPageUp()
+    runGame()
 }
 
 function endGame(winner) {
@@ -52,22 +81,26 @@ function endGame(winner) {
     const restart = document.querySelector('.btn')
 
     timeOutElement.innerHTML = 'Game over'
-    controls.style.display = 'none'
+    controls.classList.remove('active')
+    incrementScore(winner)
 
     if (winner === 'computer') {
         resultElement.innerHTML = 'You lost 😔'
-        resultElement.classList.add('active')
     } else {
         resultElement.innerHTML = 'You won 😃'
-        resultElement.classList.add('active')
     }
 
-    scrollPage()
+    scrollPageDown()
     setTimeout(() => {
         restart.classList.add('active')
-        scrollPage()
+        scrollPageDown()
     }, 1000)
+}
 
+function incrementScore(winner) {
+    const scoreEl = document.querySelector(`.scores .${winner} span`)
+    let score = Number(scoreEl.innerHTML)
+    scoreEl.innerHTML = score + 1
 }
 
 function runGame() {
@@ -109,7 +142,7 @@ function runGame() {
                     choice.checked = false
                     choice.disabled = true
                 })
-                scrollPage()
+                scrollPageDown()
             }
 
             setTimeout(() => {
@@ -133,12 +166,12 @@ function runGame() {
                     choices.forEach(choice => {
                         choice.disabled = false
                     })
-                    scrollPage()
+                    scrollPageDown()
 
                     choices.forEach(choice => {
                         choice.disabled = false
                     })
-                    scrollPage()
+                    scrollPageDown()
                 }
             }, 1000);
         }

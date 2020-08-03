@@ -102,7 +102,7 @@ summary {
 
 .instructions .content {
   line-height: 1.4rem;
-  animation: fadeInDown 0.2s ease-in;
+  animation: fadeInRight 0.2s linear;
 }
 
 .remainder .content .rem {
@@ -129,6 +129,22 @@ summary {
   padding: 20px 0;
 }
 
+.scores {
+  margin: 0 auto 20px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scores span {
+  margin: 0 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
 .start-number span {
   padding: 3px 6px;
   color: #000;
@@ -144,6 +160,14 @@ summary {
 
 .result {
   color: #e79f0d;
+}
+
+.controls {
+  display: none;
+}
+
+.controls.active {
+  display: block;
 }
 
 .prompt {
@@ -188,7 +212,7 @@ summary {
   font-weight: bold;
   background: #e79f0d;
   cursor: pointer;
-  animation: fadeInDown 0.4s ease-in;
+  animation: fadeInDown 0.3s ease-in;
 }
 
 .btn.active {
