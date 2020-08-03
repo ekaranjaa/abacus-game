@@ -84,9 +84,9 @@ function runGame() {
 
     choices.forEach(choice => {
         choice.onchange = () => {
+            remainderElement.parentElement.open = true
             playerInput = getPlayerNumber(choice.value)
             computerInput = getComputerNumber()
-            remainderElement.parentElement.open = true
 
             if (playerInput) {
                 remainder = getRemainder(generatedNumber, playerInput)
@@ -104,13 +104,13 @@ function runGame() {
                 if (remainder === 0) {
                     return endGame('computer')
                 }
-            }
 
-            choices.forEach(choice => {
-                choice.checked = false
-                choice.disabled = true
-            })
-            scrollPage()
+                choices.forEach(choice => {
+                    choice.checked = false
+                    choice.disabled = true
+                })
+                scrollPage()
+            }
 
             setTimeout(() => {
                 if (computerInput) {
@@ -129,12 +129,17 @@ function runGame() {
                     if (remainder === 0) {
                         return endGame('player')
                     }
-                }
 
-                choices.forEach(choice => {
-                    choice.disabled = false
-                })
-                scrollPage()
+                    choices.forEach(choice => {
+                        choice.disabled = false
+                    })
+                    scrollPage()
+
+                    choices.forEach(choice => {
+                        choice.disabled = false
+                    })
+                    scrollPage()
+                }
             }, 1000);
         }
     })
